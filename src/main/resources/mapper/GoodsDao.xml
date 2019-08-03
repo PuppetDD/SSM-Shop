@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.gold.dao.GoodsDao">
+
+    <resultMap id="goods" type="Goods">
+        <id column="g_id" property="g_id"/>
+        <result column="g_name" property="g_name"/>
+        <result column="b_id" property="b_id"/>
+        <result column="b_name" property="b_name"/>
+        <result column="g_type" property="g_type"/>
+        <result column="g_price" property="g_price"/>
+        <result column="weight" property="weight"/>
+        <result column="picture" property="picture"/>
+        <result column="manufacturer" property="manufacturer"/>
+        <result column="stock" property="stock"/>
+    </resultMap>
+
+    <select id="selectById" resultType="Goods" parameterType="String">
+        select *
+        from goods
+                 natural join sell
+                 natural join business
+        where g_id = #{g_id}
+    </select>
+
+    <select id="showGoodsList" resultMap="goods">
+        select *
+        from goods
+                 natural join sell
+                 natural join business
+    </select>
+
+    <select id="showGoodsListByType" resultMap="goods" parameterType="String">
+        select *
+        from goods
+                 natural join sell
+                 natural join business
+        where g_type = #{type}
+    </select>
+
+    <select id="showGoodsListBySearch" resultMap="goods" parameterType="String">
+        select *
+        from goods
+                 natural join sell
+                 natural join business
+        where concat(g_name, g_type) like concat('%', #{s}, '%')
+    </select>
+
+</mapper>

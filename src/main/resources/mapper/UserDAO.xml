@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.gold.dao.UserDao">
+
+    <select id="select" resultType="User" parameterType="String">
+        select *
+        from user
+        where u_id = #{u_id}
+    </select>
+
+    <insert id="insert" parameterType="User">
+        insert into user
+        values (#{u_id}, #{u_name}, #{u_password}, #{u_number}, #{u_sex}, #{u_mail}, #{u_address})
+    </insert>
+
+    <select id="login" resultType="User">
+        select *
+        from user
+        where u_id = #{u_id}
+          and u_password = #{password}
+    </select>
+
+    <update id="update" parameterType="User">
+        update user
+        set u_name=#{u_name},
+            u_number=#{u_number},
+            u_mail=#{u_mail},
+            u_address=#{u_address}
+        where u_id = #{u_id}
+    </update>
+
+</mapper>

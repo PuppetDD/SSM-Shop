@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.gold.dao.OrdersDao">
+
+    <resultMap id="orders" type="Orders">
+        <id column="o_id" property="o_id"/>
+        <result column="u_id" property="u_id"/>
+        <result column="b_id" property="b_id"/>
+        <result column="g_name" property="g_name"/>
+        <result column="g_id" property="g_id"/>
+        <result column="o_amount" property="o_amount"/>
+        <result column="o_price" property="o_price"/>
+        <result column="method" property="method"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <select id="selectByUserId" resultMap="orders" parameterType="String">
+        select *
+        from orders
+                 NATURAL join goods
+        where u_id = #{u_id}
+    </select>
+
+    <insert id="insert" parameterType="Orders">
+        insert into orders
+        values (#{o_id}, #{u_id}, #{b_id}, #{g_id}, #{o_amount}, #{o_price}, #{method}, #{status})
+    </insert>
+
+    <delete id="delete" parameterType="String">
+        delete
+        from orders
+        where o_id = #{o_id}
+    </delete>
+
+    <update id="update">
+        update orders
+        set method=#{method},
+            status=#{status}
+        where o_id = #{o_id}
+    </update>
+
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.gold.dao.CarDao">
+
+    <resultMap id="car" type="Car">
+        <id column="c_id" property="c_id"/>
+        <result column="o_id" property="o_id"/>
+        <result column="u_id" property="u_id"/>
+        <result column="b_id" property="b_id"/>
+        <result column="b_name" property="b_name"/>
+        <result column="g_id" property="g_id"/>
+        <result column="g_name" property="g_name"/>
+        <result column="g_type" property="g_type"/>
+        <result column="picture" property="picture"/>
+        <result column="c_amount" property="c_amount"/>
+        <result column="c_price" property="price"/>
+    </resultMap>
+
+    <select id="findById" resultType="Integer">
+        select c_amount
+        from car
+        where u_id = #{u_id}
+          and g_id = #{g_id}
+    </select>
+
+    <select id="selectById" resultMap="car" parameterType="String">
+        select *
+        from car
+                 NATURAL join goods
+                 natural join sell
+                 natural join business
+        where u_id = #{u_id}
+    </select>
+
+    <insert id="insert" parameterType="Car">
+        insert into car
+        values (#{c_id}, #{u_id}, #{b_id}, #{g_id}, #{c_amount}, #{price})
+    </insert>
+
+    <update id="update">
+        update car
+        set c_id=#{c_id},
+            c_amount=#{c_amount}
+        where u_id = #{u_id}
+          and g_id = #{g_id}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete
+        from car
+        where c_id = #{c_id}
+    </delete>
+
+</mapper>
