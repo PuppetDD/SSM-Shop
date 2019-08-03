@@ -69,24 +69,21 @@ public class UserController {
     public String change(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String u_id = request.getParameter("User_id");
-        String u_password = request.getParameter("User_password");
-        String u_name = request.getParameter("User_name");
         String u_number = request.getParameter("User_number");
+        String u_name = request.getParameter("User_name");
         String u_mail = request.getParameter("User_mail");
         String u_address = request.getParameter("User_address");
 
         String path = null;
-        if (userService.userInfo(u_id) != null) {
-            User user = new User();
+        User user = userService.userInfo(u_id);
+        if (user != null) {
             user.setU_name(u_name);
-            user.setU_id(u_id);
-            user.setU_password(u_password);
             user.setU_number(u_number);
             user.setU_mail(u_mail);
             user.setU_address(u_address);
             userService.changInfo(user);
-            request.setAttribute("self", userService.userInfo(u_id));
-            path = "self";
+            System.out.println("id:" + user.getU_id() + " password:" + user.getU_password());
+            path = "redirect:/userLogin.do?User_id=" + user.getU_id() + "&User_password=" + user.getU_password();
         }
         return path;
     }
@@ -111,9 +108,7 @@ public class UserController {
         user.setU_address(u_address);
         String path;
         if (userService.addUser(user)) {
-            request.setAttribute("User_id", user.getU_id());
-            request.setAttribute("User_password", user.getU_password());
-            path = "redirect:/userLogin.do";
+            path = "redirect:/userLogin.do?User_id=" + user.getU_id() + "&User_password=" + user.getU_password();
         } else {
             path = "redirect:/userLogin.do?exist=yes";
         }

@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Register</title>
+    <title>Information</title>
     <meta charset="utf-8">
     <link href="css/style1.css" rel='stylesheet' type='text/css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,23 +27,23 @@
     User u = (User) object;
 %>
 <div class="main">
-    <form action="userCchange.do" method="post">
+    <form action="userChange.do" method="post">
         <ul class="left-form">
             <h2>Your Information:</h2>
             <li>
-                ID:<input type="text" name="User_id" value="<%=u.getU_id()%>" readonly="readonly" required/>
+                <input type="text" name="User_id" value="<%=u.getU_id()%>" readonly="readonly" required/>
                 <div class="clear"></div>
             </li>
             <li>
-                Name:<input type="text" name="User_name" value="<%=u.getU_name()%>" required/>
+                <input type="text" name="User_name" value="<%=u.getU_name()%>" required/>
                 <div class="clear"></div>
             </li>
             <li>
-                Phone number:<input type="text" name="User_number" value="<%=u.getU_number()%>" required/>
+                <input type="text" name="User_number" value="<%=u.getU_number()%>" required/>
                 <div class="clear"></div>
             </li>
             <li>
-                Email:<input type="text" name="User_mail" value="<%=u.getU_mail()%>" required/>
+                <input type="text" name="User_mail" value="<%=u.getU_mail()%>" required/>
                 <div class="clear"></div>
             </li>
             <li>
