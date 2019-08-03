@@ -30,9 +30,6 @@ public class OrdersController {
     private OrdersService ordersService;
 
     @Resource
-    private CarService carService;
-
-    @Resource
     private UserService userService;
 
     @RequestMapping("/addOrder.do")

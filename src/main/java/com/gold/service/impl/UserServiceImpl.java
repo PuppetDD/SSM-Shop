@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.service.impl
  *
  * @author GOLD

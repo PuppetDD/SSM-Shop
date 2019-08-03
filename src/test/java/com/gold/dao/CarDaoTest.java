@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.dao
  *
  * @author GOLD

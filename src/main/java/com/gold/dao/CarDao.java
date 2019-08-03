@@ -6,12 +6,13 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.dao
  *
  * @author GOLD
  * @date 2019/8/2
  */
+
 public interface CarDao {
 
     Integer findById(@Param("u_id") String u_id, @Param("g_id") String g_id);

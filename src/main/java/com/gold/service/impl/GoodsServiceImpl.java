@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.service.impl
  *
  * @author GOLD

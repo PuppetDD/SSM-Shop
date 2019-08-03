@@ -5,12 +5,13 @@ import com.gold.entity.Goods;
 import java.util.List;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.dao
  *
  * @author GOLD
  * @date 2019/8/2
  */
+
 public interface GoodsDao {
 
     Goods selectById(String g_id);

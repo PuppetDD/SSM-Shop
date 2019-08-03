@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.dao
  *
  * @author GOLD

@@ -1,7 +1,7 @@
 package com.gold.entity;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.entity
  *
  * @author GOLD

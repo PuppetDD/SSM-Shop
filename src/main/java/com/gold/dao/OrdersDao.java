@@ -6,12 +6,13 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.dao
  *
  * @author GOLD
  * @date 2019/8/2
  */
+
 public interface OrdersDao {
 
     List<Orders> selectByUserId(String u_id);

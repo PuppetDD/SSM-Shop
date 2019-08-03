@@ -4,12 +4,13 @@ import com.gold.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.dao
  *
  * @author GOLD
  * @date 2019/8/2
  */
+
 public interface UserDao {
 
     void insert(User user);

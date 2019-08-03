@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * SSM-Learn
+ * SSM-Shop
  * com.gold.service.impl
  *
  * @author GOLD
