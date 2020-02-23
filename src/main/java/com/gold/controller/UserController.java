@@ -25,6 +25,14 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    /**
+     * *
+     * @param request
+     * @param response
+     * @return
+     * @throws IOException
+     */
+
     @RequestMapping("/userLogin.do")
     public String login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
